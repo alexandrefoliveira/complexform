@@ -11,24 +11,8 @@ function App() {
         const {value, name } = event.target;
 
         setFullName(prevValue => {
-            if(name === "fName"){
-                return{
-                    fName : value,
-                    lName : prevValue.lName,
-                    eMail : prevValue.eMail
-                }
-            }else if (name === "lName"){
-                return{
-                    fName : prevValue.fName,
-                    lName : value,
-                    eMail : prevValue.eMail
-                }
-            }else if (name === "eMail"){
-                return{
-                    fName : prevValue.fName,
-                    lName : prevValue.lName,
-                    eMail : value
-                }
+            return {
+              ...prevValue,  [name] : value 
             }
         })
     }
